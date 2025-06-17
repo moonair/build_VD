@@ -16,3 +16,9 @@ jobs:
 
     - name: Build altinput
       run: msbuild altinput/tgm3_input.sln /p:PlatformToolset=v143 /p:Configuration=Release
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: altinput-exe
+        path: altinput/Release/*
