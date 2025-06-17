@@ -1,21 +1,18 @@
 name: Build altinput
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - name: Clone altinput repository
+      run: git clone https://github.com/AltimorTASDK/altinput.git
 
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
 
-    - name: Build with MSBuild
-      run: msbuild altinput.sln /p:Configuration=Release
+    - name: Build altinput
+      run: msbuild altinput/altinput.sln /p:Configuration=Release
