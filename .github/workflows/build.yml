@@ -15,4 +15,4 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Build altinput
-      run: msbuild altinput/altinput.sln /p:Configuration=Release
+      run: msbuild altinput/tgm3_input.sln /p:Configuration=Release
